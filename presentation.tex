@@ -1,0 +1,117 @@
+% Auriga theme
+% find the most up-to-date version here: https://github.com/anishathalye/auriga
+
+\documentclass[14pt,aspectratio=169]{beamer}
+\usepackage{pgfpages}
+\usepackage{fancyvrb}
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+
+\usepackage{pgfplots}
+
+\usepackage{booktabs}
+\usepackage[normalem]{ulem}
+
+
+\usetheme{auriga}
+\usecolortheme{auriga}
+%\setbeamercolor{math text}{fg=blue}
+
+\newcommand\blfootnote[1]{%
+\begingroup
+\renewcommand\thefootnote{}\footnote{#1}%
+\addtocounter{footnote}{-1}%
+\endgroup
+}
+
+%\setbeamertemplate{footline}[]
+%\renewcommand\footnotemark{}
+
+\setbeamertemplate{footline}[frame number]
+
+% define some colors for a consistent theme across slides
+\definecolor{red}{RGB}{181, 23, 0}
+\definecolor{blue}{RGB}{0, 118, 186}
+\definecolor{gray}{RGB}{146, 146, 146}
+\definecolor{orange}{RGB}{255, 165, 0}
+\definecolor{green}{RGB}{0, 128, 0}
+% Create a slide for each section
+\AtBeginSection[]{
+  \begin{frame}
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+      \usebeamerfont{title}\insertsectionhead\par%
+    \end{beamercolorbox}
+    \vfill
+  \end{frame}
+}
+
+\title{Do we need \textcolor{blue}{Attention}?}
+
+\author{Presented by Sasha Rush}
+
+% \institute[shortinst]{}
+
+\begin{document}
+
+{
+  % rather than use the frame options [noframenumbering,plain], we make the
+  % color match, so that the indicated page numbers match PDF page numbers
+  \setbeamercolor{page number in head/foot}{fg=background canvas.bg}
+  \begin{frame}
+    \titlepage
+  \end{frame}
+}
+
+\begin{frame}[label=c]{}
+    \textit{
+    This talk is a survey of work done by:
+}
+    
+    \begin{center}
+    Albert Gu, Ankit Gupta, Tri Dao, Dan Fu, Shuangfei Zhai, Antono Orvieto, Michael Poli, Chris Re, Yuhon Li, Tianle Cai, Harsh Mehta, Jimmy Smith, Scott Linderman, Xuezhe Ma, Chunting Zhou, Xiang Kong, Bo Peng, Eric Alcaide, Anthony Quentin, Andrew Warrington, Yi Zhang, Stefano Massaroli, \\and many others
+    \end{center}
+
+\end{frame}
+
+\section{Preface: Transformers and Attention}
+
+\input{02-transformers}
+
+\section{The Challenge}
+\input{01-intro}
+
+\section{An RNN Revival}
+ \input{03-RNN}
+
+\section{Are we GPT yet?}
+ \input{03.5-Results}
+
+% \section{Computation and Parameterization}
+% \input{05-Extensions}
+
+
+\section{Scaling Linear RNNs}
+\input{06-final}
+
+
+% \section{Practicalities}
+
+
+
+
+% \input{slides/bullets}
+% \input{slides/split}
+% \input{slides/figure}
+% \input{slides/centered}
+% \input{slides/monospace}
+% \input{slides/brackets}
+% \input{slides/link}
+\begin{frame}[allowframebreaks]
+        \frametitle{References}
+        \footnotesize
+        \bibliographystyle{apalike}
+        \bibliography{ssm.bib,anthology.bib}
+\end{frame}
+\end{document}

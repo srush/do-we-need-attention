@@ -1,0 +1,598 @@
+@ARTICLE{Orvieto2023-an,
+  title         = "Resurrecting Recurrent Neural Networks for Long Sequences",
+  author        = "Orvieto, Antonio and Smith, Samuel L and Gu, Albert and
+                   Fernando, Anushan and Gulcehre, Caglar and Pascanu, Razvan
+                   and De, Soham",
+  abstract      = "Recurrent Neural Networks (RNNs) offer fast inference on
+                   long sequences but are hard to optimize and slow to train.
+                   Deep state-space models (SSMs) have recently been shown to
+                   perform remarkably well on long sequence modeling tasks, and
+                   have the added benefits of fast parallelizable training and
+                   RNN-like fast inference. However, while SSMs are
+                   superficially similar to RNNs, there are important
+                   differences that make it unclear where their performance
+                   boost over RNNs comes from. In this paper, we show that
+                   careful design of deep RNNs using standard signal
+                   propagation arguments can recover the impressive performance
+                   of deep SSMs on long-range reasoning tasks, while also
+                   matching their training speed. To achieve this, we analyze
+                   and ablate a series of changes to standard RNNs including
+                   linearizing and diagonalizing the recurrence, using better
+                   parameterizations and initializations, and ensuring proper
+                   normalization of the forward pass. Our results provide new
+                   insights on the origins of the impressive performance of
+                   deep SSMs, while also introducing an RNN block called the
+                   Linear Recurrent Unit that matches both their performance on
+                   the Long Range Arena benchmark and their computational
+                   efficiency.",
+  month         =  mar,
+  year          =  2023,
+  keywords      = "SSM",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.LG",
+  eprint        = "2303.06349"
+}
+
+@ARTICLE{Zhai2021-gz,
+  title         = "An Attention Free Transformer",
+  author        = "Zhai, Shuangfei and Talbott, Walter and Srivastava, Nitish
+                   and Huang, Chen and Goh, Hanlin and Zhang, Ruixiang and
+                   Susskind, Josh",
+  abstract      = "We introduce Attention Free Transformer (AFT), an efficient
+                   variant of Transformers that eliminates the need for dot
+                   product self attention. In an AFT layer, the key and value
+                   are first combined with a set of learned position biases,
+                   the result of which is multiplied with the query in an
+                   element-wise fashion. This new operation has a memory
+                   complexity linear w.r.t. both the context size and the
+                   dimension of features, making it compatible to both large
+                   input and model sizes. We also introduce AFT-local and
+                   AFT-conv, two model variants that take advantage of the idea
+                   of locality and spatial weight sharing while maintaining
+                   global connectivity. We conduct extensive experiments on two
+                   autoregressive modeling tasks (CIFAR10 and Enwik8) as well
+                   as an image recognition task (ImageNet-1K classification).
+                   We show that AFT demonstrates competitive performance on all
+                   the benchmarks, while providing excellent efficiency at the
+                   same time.",
+  month         =  may,
+  year          =  2021,
+  keywords      = "SSM",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.LG",
+  eprint        = "2105.14103"
+}
+
+@ARTICLE{Poli2023-ag,
+  title         = "Hyena Hierarchy: Towards Larger Convolutional Language
+                   Models",
+  author        = "Poli, Michael and Massaroli, Stefano and Nguyen, Eric and
+                   Fu, Daniel Y and Dao, Tri and Baccus, Stephen and Bengio,
+                   Yoshua and Ermon, Stefano and R{\'e}, Christopher",
+  abstract      = "Recent advances in deep learning have relied heavily on the
+                   use of large Transformers due to their ability to learn at
+                   scale. However, the core building block of Transformers, the
+                   attention operator, exhibits quadratic cost in sequence
+                   length, limiting the amount of context accessible. Existing
+                   subquadratic methods based on low-rank and sparse
+                   approximations need to be combined with dense attention
+                   layers to match Transformers, indicating a gap in
+                   capability. In this work, we propose Hyena, a subquadratic
+                   drop-in replacement for attention constructed by
+                   interleaving implicitly parametrized long convolutions and
+                   data-controlled gating. In recall and reasoning tasks on
+                   sequences of thousands to hundreds of thousands of tokens,
+                   Hyena improves accuracy by more than 50 points over
+                   operators relying on state-spaces and other implicit and
+                   explicit methods, matching attention-based models. We set a
+                   new state-of-the-art for dense-attention-free architectures
+                   on language modeling in standard datasets (WikiText103 and
+                   The Pile), reaching Transformer quality with a 20\%
+                   reduction in training compute required at sequence length
+                   2K. Hyena operators are twice as fast as highly optimized
+                   attention at sequence length 8K, and 100x faster at sequence
+                   length 64K.",
+  month         =  feb,
+  year          =  2023,
+  keywords      = "SSM",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.LG",
+  eprint        = "2302.10866"
+}
+
+@ARTICLE{Li2022-pn,
+  title         = "What Makes Convolutional Models Great on Long Sequence
+                   Modeling?",
+  author        = "Li, Yuhong and Cai, Tianle and Zhang, Yi and Chen, Deming
+                   and Dey, Debadeepta",
+  abstract      = "Convolutional models have been widely used in multiple
+                   domains. However, most existing models only use local
+                   convolution, making the model unable to handle long-range
+                   dependency efficiently. Attention overcomes this problem by
+                   aggregating global information but also makes the
+                   computational complexity quadratic to the sequence length.
+                   Recently, Gu et al. [2021] proposed a model called S4
+                   inspired by the state space model. S4 can be efficiently
+                   implemented as a global convolutional model whose kernel
+                   size equals the input sequence length. S4 can model much
+                   longer sequences than Transformers and achieve significant
+                   gains over SoTA on several long-range tasks. Despite its
+                   empirical success, S4 is involved. It requires sophisticated
+                   parameterization and initialization schemes. As a result, S4
+                   is less intuitive and hard to use. Here we aim to demystify
+                   S4 and extract basic principles that contribute to the
+                   success of S4 as a global convolutional model. We focus on
+                   the structure of the convolution kernel and identify two
+                   critical but intuitive principles enjoyed by S4 that are
+                   sufficient to make up an effective global convolutional
+                   model: 1) The parameterization of the convolutional kernel
+                   needs to be efficient in the sense that the number of
+                   parameters should scale sub-linearly with sequence length.
+                   2) The kernel needs to satisfy a decaying structure that the
+                   weights for convolving with closer neighbors are larger than
+                   the more distant ones. Based on the two principles, we
+                   propose a simple yet effective convolutional model called
+                   Structured Global Convolution (SGConv). SGConv exhibits
+                   strong empirical performance over several tasks: 1) With
+                   faster speed, SGConv surpasses S4 on Long Range Arena and
+                   Speech Command datasets. 2) When plugging SGConv into
+                   standard language and vision models, it shows the potential
+                   to improve both efficiency and performance.",
+  month         =  oct,
+  year          =  2022,
+  keywords      = "SSM",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.LG",
+  eprint        = "2210.09298"
+}
+
+@ARTICLE{Fu2022-bw,
+  title         = "Hungry Hungry Hippos: Towards Language Modeling with State
+                   Space Models",
+  author        = "Fu, Daniel Y and Dao, Tri and Saab, Khaled K and Thomas,
+                   Armin W and Rudra, Atri and R{\'e}, Christopher",
+  abstract      = "State space models (SSMs) have demonstrated state-of-the-art
+                   sequence modeling performance in some modalities, but
+                   underperform attention in language modeling. Moreover,
+                   despite scaling nearly linearly in sequence length instead
+                   of quadratically, SSMs are still slower than Transformers
+                   due to poor hardware utilization. In this paper, we make
+                   progress on understanding the expressivity gap between SSMs
+                   and attention in language modeling, and on reducing the
+                   hardware barrier between SSMs and attention. First, we use
+                   synthetic language modeling tasks to understand the gap
+                   between SSMs and attention. We find that existing SSMs
+                   struggle with two capabilities: recalling earlier tokens in
+                   the sequence and comparing tokens across the sequence. To
+                   understand the impact on language modeling, we propose a new
+                   SSM layer, H3, that is explicitly designed for these
+                   abilities. H3 matches attention on the synthetic languages
+                   and comes within 0.4 PPL of Transformers on OpenWebText.
+                   Furthermore, a hybrid 125M-parameter H3-attention model that
+                   retains two attention layers surprisingly outperforms
+                   Transformers on OpenWebText by 1.0 PPL. Next, to improve the
+                   efficiency of training SSMs on modern hardware, we propose
+                   FlashConv. FlashConv uses a fused block FFT algorithm to
+                   improve efficiency on sequences up to 8K, and introduces a
+                   novel state passing algorithm that exploits the recurrent
+                   properties of SSMs to scale to longer sequences. FlashConv
+                   yields 2$\times$ speedup on the long-range arena benchmark
+                   and allows hybrid language models to generate text
+                   2.4$\times$ faster than Transformers. Using FlashConv, we
+                   scale hybrid H3-attention language models up to 2.7B
+                   parameters on the Pile and find promising initial results,
+                   achieving lower perplexity than Transformers and
+                   outperforming Transformers in zero- and few-shot learning on
+                   a majority of tasks in the SuperGLUE benchmark.",
+  month         =  dec,
+  year          =  2022,
+  keywords      = "SSM",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.LG",
+  eprint        = "2212.14052"
+}
+
+@ARTICLE{Mehta2022-pz,
+  title         = "Long Range Language Modeling via Gated State Spaces",
+  author        = "Mehta, Harsh and Gupta, Ankit and Cutkosky, Ashok and
+                   Neyshabur, Behnam",
+  abstract      = "State space models have shown to be effective at modeling
+                   long range dependencies, specially on sequence
+                   classification tasks. In this work we focus on
+                   autoregressive sequence modeling over English books, Github
+                   source code and ArXiv mathematics articles. Based on recent
+                   developments around the effectiveness of gated activation
+                   functions, we propose a new layer named Gated State Space
+                   (GSS) and show that it trains significantly faster than the
+                   diagonal version of S4 (i.e. DSS) on TPUs, is fairly
+                   competitive with several well-tuned Transformer-based
+                   baselines and exhibits zero-shot generalization to longer
+                   inputs while being straightforward to implement. Finally, we
+                   show that leveraging self-attention to model local
+                   dependencies improves the performance of GSS even further.",
+  month         =  jun,
+  year          =  2022,
+  keywords      = "SSM",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.LG",
+  eprint        = "2206.13947"
+}
+
+@ARTICLE{Smith2022-at,
+  title         = "Simplified State Space Layers for Sequence Modeling",
+  author        = "Smith, Jimmy T H and Warrington, Andrew and Linderman, Scott
+                   W",
+  abstract      = "Models using structured state space sequence (S4) layers
+                   have achieved state-of-the-art performance on long-range
+                   sequence modeling tasks. An S4 layer combines linear state
+                   space models (SSMs), the HiPPO framework, and deep learning
+                   to achieve high performance. We build on the design of the
+                   S4 layer and introduce a new state space layer, the S5
+                   layer. Whereas an S4 layer uses many independent
+                   single-input, single-output SSMs, the S5 layer uses one
+                   multi-input, multi-output SSM. We establish a connection
+                   between S5 and S4, and use this to develop the
+                   initialization and parameterization used by the S5 model.
+                   The result is a state space layer that can leverage
+                   efficient and widely implemented parallel scans, allowing S5
+                   to match the computational efficiency of S4, while also
+                   achieving state-of-the-art performance on several long-range
+                   sequence modeling tasks. S5 averages 87.4\% on the long
+                   range arena benchmark, and 98.5\% on the most difficult
+                   Path-X task.",
+  month         =  aug,
+  year          =  2022,
+  keywords      = "SSM",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.LG",
+  eprint        = "2208.04933"
+}
+
+@ARTICLE{Ma2022-xw,
+  title         = "Mega: Moving Average Equipped Gated Attention",
+  author        = "Ma, Xuezhe and Zhou, Chunting and Kong, Xiang and He,
+                   Junxian and Gui, Liangke and Neubig, Graham and May,
+                   Jonathan and Zettlemoyer, Luke",
+  abstract      = "The design choices in the Transformer attention mechanism,
+                   including weak inductive bias and quadratic computational
+                   complexity, have limited its application for modeling long
+                   sequences. In this paper, we introduce Mega, a simple,
+                   theoretically grounded, single-head gated attention
+                   mechanism equipped with (exponential) moving average to
+                   incorporate inductive bias of position-aware local
+                   dependencies into the position-agnostic attention mechanism.
+                   We further propose a variant of Mega that offers linear time
+                   and space complexity yet yields only minimal quality loss,
+                   by efficiently splitting the whole sequence into multiple
+                   chunks with fixed length. Extensive experiments on a wide
+                   range of sequence modeling benchmarks, including the Long
+                   Range Arena, neural machine translation, auto-regressive
+                   language modeling, and image and speech classification, show
+                   that Mega achieves significant improvements over other
+                   sequence models, including variants of Transformers and
+                   recent state space models.",
+  month         =  sep,
+  year          =  2022,
+  keywords      = "SSM",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.LG",
+  eprint        = "2209.10655"
+}
+
+@ARTICLE{Peng2023-yp,
+  title         = "{RWKV}: Reinventing {RNNs} for the Transformer Era",
+  author        = "Peng, Bo and Alcaide, Eric and Anthony, Quentin and Albalak,
+                   Alon and Arcadinho, Samuel and Cao, Huanqi and Cheng, Xin
+                   and Chung, Michael and Grella, Matteo and Gv, Kranthi Kiran
+                   and He, Xuzheng and Hou, Haowen and Kazienko, Przemyslaw and
+                   Kocon, Jan and Kong, Jiaming and Koptyra, Bartlomiej and
+                   Lau, Hayden and Mantri, Krishna Sri Ipsit and Mom, Ferdinand
+                   and Saito, Atsushi and Tang, Xiangru and Wang, Bolun and
+                   Wind, Johan S and Wozniak, Stansilaw and Zhang, Ruichong and
+                   Zhang, Zhenyuan and Zhao, Qihang and Zhou, Peng and Zhu,
+                   Jian and Zhu, Rui-Jie",
+  abstract      = "Transformers have revolutionized almost all natural language
+                   processing (NLP) tasks but suffer from memory and
+                   computational complexity that scales quadratically with
+                   sequence length. In contrast, recurrent neural networks
+                   (RNNs) exhibit linear scaling in memory and computational
+                   requirements but struggle to match the same performance as
+                   Transformers due to limitations in parallelization and
+                   scalability. We propose a novel model architecture,
+                   Receptance Weighted Key Value (RWKV), that combines the
+                   efficient parallelizable training of Transformers with the
+                   efficient inference of RNNs. Our approach leverages a linear
+                   attention mechanism and allows us to formulate the model as
+                   either a Transformer or an RNN, which parallelizes
+                   computations during training and maintains constant
+                   computational and memory complexity during inference,
+                   leading to the first non-transformer architecture to be
+                   scaled to tens of billions of parameters. Our experiments
+                   reveal that RWKV performs on par with similarly sized
+                   Transformers, suggesting that future work can leverage this
+                   architecture to create more efficient models. This work
+                   presents a significant step towards reconciling the
+                   trade-offs between computational efficiency and model
+                   performance in sequence processing tasks.",
+  month         =  may,
+  year          =  2023,
+  keywords      = "SSM",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.CL",
+  eprint        = "2305.13048"
+}
+
+@UNPUBLISHED{Martin2018-bq,
+  title    = "Parallelizing Linear Recurrent Neural Nets Over Sequence Length",
+  author   = "Martin, Eric and Cundy, Chris",
+  abstract = "Recurrent neural networks (RNNs) are widely used to model
+              sequential data but their non-linear dependencies between
+              sequence elements prevent parallelizing training over sequence
+              length. We show the training of RNNs with only linear sequential
+              dependencies can be parallelized over the sequence length using
+              the parallel scan algorithm, leading to rapid training on long
+              sequences even with small minibatch size. We develop a parallel
+              linear recurrence CUDA kernel and show that it can be applied to
+              immediately speed up training and inference of several state of
+              the art RNN architectures by up to 9x. We abstract recent work on
+              linear RNNs into a new framework of linear surrogate RNNs and
+              develop a linear surrogate model for the long short-term memory
+              unit, the GILR-LSTM, that utilizes parallel linear recurrence. We
+              extend sequence learning to new extremely long sequence regimes
+              that were previously out of reach by successfully training a
+              GILR-LSTM on a synthetic sequence classification task with a one
+              million timestep dependency.",
+  month    =  feb,
+  year     =  2018,
+  keywords = "SSM"
+}
+
+@ARTICLE{Wang2022-un,
+  title         = "Pretraining Without Attention",
+  author        = "Wang, Junxiong and Yan, Jing Nathan and Gu, Albert and Rush,
+                   Alexander M",
+  abstract      = "Transformers have been essential to pretraining success in
+                   NLP. While other architectures have been used, downstream
+                   accuracy is either significantly worse, or requires
+                   attention layers to match standard benchmarks such as GLUE.
+                   This work explores pretraining without attention by using
+                   recent advances in sequence routing based on state-space
+                   models (SSMs). Our proposed model, Bidirectional Gated SSM
+                   (BiGS), combines SSM layers with a multiplicative gating
+                   architecture that has been effective in simplified sequence
+                   modeling architectures. The model learns static layers that
+                   do not consider pair-wise interactions. Even so, BiGS is
+                   able to match BERT pretraining accuracy on GLUE and can be
+                   extended to long-form pretraining of 4096 tokens without
+                   approximation. Analysis shows that while the models have
+                   similar average accuracy, the approach has different
+                   inductive biases than BERT in terms of interactions and
+                   syntactic representations. All models from this work are
+                   available at https://github.com/jxiw/BiGS.",
+  month         =  dec,
+  year          =  2022,
+  keywords      = "SSM",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.CL",
+  eprint        = "2212.10544"
+}
+
+@ARTICLE{Gupta2022-vp,
+  title         = "Diagonal State Spaces are as Effective as Structured State
+                   Spaces",
+  author        = "Gupta, Ankit and Gu, Albert and Berant, Jonathan",
+  abstract      = "Modeling long range dependencies in sequential data is a
+                   fundamental step towards attaining human-level performance
+                   in many modalities such as text, vision, audio and video.
+                   While attention-based models are a popular and effective
+                   choice in modeling short-range interactions, their
+                   performance on tasks requiring long range reasoning has been
+                   largely inadequate. In an exciting result, Gu et al. (ICLR
+                   2022) proposed the $\textit\{Structured State Space\}$ (S4)
+                   architecture delivering large gains over state-of-the-art
+                   models on several long-range tasks across various
+                   modalities. The core proposition of S4 is the
+                   parameterization of state matrices via a diagonal plus low
+                   rank structure, allowing efficient computation. In this
+                   work, we show that one can match the performance of S4 even
+                   without the low rank correction and thus assuming the state
+                   matrices to be diagonal. Our $\textit\{Diagonal State
+                   Space\}$ (DSS) model matches the performance of S4 on Long
+                   Range Arena tasks, speech classification on Speech Commands
+                   dataset, while being conceptually simpler and
+                   straightforward to implement.",
+  month         =  mar,
+  year          =  2022,
+  keywords      = "SSM",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.LG",
+  eprint        = "2203.14343"
+}
+
+@MISC{Blelloch1990-yo,
+  title        = "Prefix sums and their applications",
+  author       = "Blelloch, Guy E and Reif, John H",
+  abstract     = "Experienced algorithm designers rely heavily on a set of
+                  building blocks and on the tools needed to put the blocks
+                  together into an algorithm. The understanding of these basic
+                  blocks and tools is therefore critical to the understanding
+                  of algorithms. Many of the blocks and tools needed for
+                  parallel algorithms extend from sequential algorithms, such
+                  as dynamic-programming and divide-and-conquer, but others are
+                  new. This paper introduces one of the simplest and most
+                  useful building blocks for parallel algorithms: the
+                  all-prefixsums operation. The paper defines the operation,
+                  shows how to implement it on a PRAM and illustrates many
+                  applications of the operation. In addition to being a useful
+                  building block, the all-prefix-sums operation is a good
+                  example of a computation that seems inherently sequential,
+                  but for which there is an efficient parallel algorithm.",
+  publisher    = "shelf2.library.cmu.edu",
+  year         =  1990,
+  howpublished = "\url{http://shelf2.library.cmu.edu/Tech/23445461.pdf}",
+  note         = "Accessed: 2023-5-30",
+  keywords     = "SSM"
+}
+
+@ARTICLE{Gu2022-jz,
+  title         = "On the Parameterization and Initialization of Diagonal State
+                   Space Models",
+  author        = "Gu, Albert and Gupta, Ankit and Goel, Karan and R{\'e},
+                   Christopher",
+  abstract      = "State space models (SSM) have recently been shown to be very
+                   effective as a deep learning layer as a promising
+                   alternative to sequence models such as RNNs, CNNs, or
+                   Transformers. The first version to show this potential was
+                   the S4 model, which is particularly effective on tasks
+                   involving long-range dependencies by using a prescribed
+                   state matrix called the HiPPO matrix. While this has an
+                   interpretable mathematical mechanism for modeling long
+                   dependencies, it introduces a custom representation and
+                   algorithm that can be difficult to implement. On the other
+                   hand, a recent variant of S4 called DSS showed that
+                   restricting the state matrix to be fully diagonal can still
+                   preserve the performance of the original model when using a
+                   specific initialization based on approximating S4's matrix.
+                   This work seeks to systematically understand how to
+                   parameterize and initialize such diagonal state space
+                   models. While it follows from classical results that almost
+                   all SSMs have an equivalent diagonal form, we show that the
+                   initialization is critical for performance. We explain why
+                   DSS works mathematically, by showing that the diagonal
+                   restriction of S4's matrix surprisingly recovers the same
+                   kernel in the limit of infinite state dimension. We also
+                   systematically describe various design choices in
+                   parameterizing and computing diagonal SSMs, and perform a
+                   controlled empirical study ablating the effects of these
+                   choices. Our final model S4D is a simple diagonal version of
+                   S4 whose kernel computation requires just 2 lines of code
+                   and performs comparably to S4 in almost all settings, with
+                   state-of-the-art results for image, audio, and medical
+                   time-series domains, and averaging 85\% on the Long Range
+                   Arena benchmark.",
+  month         =  jun,
+  year          =  2022,
+  keywords      = "SSM",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.LG",
+  eprint        = "2206.11893"
+}
+
+@ARTICLE{Goel2022-lv,
+  title         = "It's Raw! Audio Generation with {State-Space} Models",
+  author        = "Goel, Karan and Gu, Albert and Donahue, Chris and R{\'e},
+                   Christopher",
+  abstract      = "Developing architectures suitable for modeling raw audio is
+                   a challenging problem due to the high sampling rates of
+                   audio waveforms. Standard sequence modeling approaches like
+                   RNNs and CNNs have previously been tailored to fit the
+                   demands of audio, but the resultant architectures make
+                   undesirable computational tradeoffs and struggle to model
+                   waveforms effectively. We propose SaShiMi, a new multi-scale
+                   architecture for waveform modeling built around the recently
+                   introduced S4 model for long sequence modeling. We identify
+                   that S4 can be unstable during autoregressive generation,
+                   and provide a simple improvement to its parameterization by
+                   drawing connections to Hurwitz matrices. SaShiMi yields
+                   state-of-the-art performance for unconditional waveform
+                   generation in the autoregressive setting. Additionally,
+                   SaShiMi improves non-autoregressive generation performance
+                   when used as the backbone architecture for a diffusion
+                   model. Compared to prior architectures in the autoregressive
+                   generation setting, SaShiMi generates piano and speech
+                   waveforms which humans find more musical and coherent
+                   respectively, e.g. 2x better mean opinion scores than
+                   WaveNet on an unconditional speech generation task. On a
+                   music generation task, SaShiMi outperforms WaveNet on
+                   density estimation and speed at both training and inference
+                   even when using 3x fewer parameters. Code can be found at
+                   https://github.com/HazyResearch/state-spaces and samples at
+                   https://hazyresearch.stanford.edu/sashimi-examples.",
+  month         =  feb,
+  year          =  2022,
+  keywords      = "SSM",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.SD",
+  eprint        = "2202.09729"
+}
+
+@ARTICLE{Lu2023-ov,
+  title         = "Structured State Space Models for {In-Context} Reinforcement
+                   Learning",
+  author        = "Lu, Chris and Schroecker, Yannick and Gu, Albert and
+                   Parisotto, Emilio and Foerster, Jakob and Singh, Satinder
+                   and Behbahani, Feryal",
+  abstract      = "Structured state space sequence (S4) models have recently
+                   achieved state-of-the-art performance on long-range sequence
+                   modeling tasks. These models also have fast inference speeds
+                   and parallelisable training, making them potentially useful
+                   in many reinforcement learning settings. We propose a
+                   modification to a variant of S4 that enables us to
+                   initialise and reset the hidden state in parallel, allowing
+                   us to tackle reinforcement learning tasks. We show that our
+                   modified architecture runs asymptotically faster than
+                   Transformers and performs better than LSTM models on a
+                   simple memory-based task. Then, by leveraging the model's
+                   ability to handle long-range sequences, we achieve strong
+                   performance on a challenging meta-learning task in which the
+                   agent is given a randomly-sampled continuous control
+                   environment, combined with a randomly-sampled linear
+                   projection of the environment's observations and actions.
+                   Furthermore, we show the resulting model can adapt to
+                   out-of-distribution held-out tasks. Overall, the results
+                   presented in this paper suggest that the S4 models are a
+                   strong contender for the default architecture used for
+                   in-context reinforcement learning",
+  month         =  mar,
+  year          =  2023,
+  keywords      = "SSM",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.LG",
+  eprint        = "2303.03982"
+}
+
+@ARTICLE{Nguyen2022-qi,
+  title         = "{S4ND}: Modeling Images and Videos as Multidimensional
+                   Signals Using State Spaces",
+  author        = "Nguyen, Eric and Goel, Karan and Gu, Albert and Downs,
+                   Gordon W and Shah, Preey and Dao, Tri and Baccus, Stephen A
+                   and R{\'e}, Christopher",
+  abstract      = "Visual data such as images and videos are typically modeled
+                   as discretizations of inherently continuous,
+                   multidimensional signals. Existing continuous-signal models
+                   attempt to exploit this fact by modeling the underlying
+                   signals of visual (e.g., image) data directly. However,
+                   these models have not yet been able to achieve competitive
+                   performance on practical vision tasks such as large-scale
+                   image and video classification. Building on a recent line of
+                   work on deep state space models (SSMs), we propose S4ND, a
+                   new multidimensional SSM layer that extends the
+                   continuous-signal modeling ability of SSMs to
+                   multidimensional data including images and videos. We show
+                   that S4ND can model large-scale visual data in $1$D, $2$D,
+                   and $3$D as continuous multidimensional signals and
+                   demonstrates strong performance by simply swapping Conv2D
+                   and self-attention layers with S4ND layers in existing
+                   state-of-the-art models. On ImageNet-1k, S4ND exceeds the
+                   performance of a Vision Transformer baseline by $1.5\%$ when
+                   training with a $1$D sequence of patches, and matches
+                   ConvNeXt when modeling images in $2$D. For videos, S4ND
+                   improves on an inflated $3$D ConvNeXt in activity
+                   classification on HMDB-51 by $4\%$. S4ND implicitly learns
+                   global, continuous convolutional kernels that are resolution
+                   invariant by construction, providing an inductive bias that
+                   enables generalization across multiple resolutions. By
+                   developing a simple bandlimiting modification to S4 to
+                   overcome aliasing, S4ND achieves strong zero-shot (unseen at
+                   training time) resolution performance, outperforming a
+                   baseline Conv2D by $40\%$ on CIFAR-10 when trained on $8
+                   \times 8$ and tested on $32 \times 32$ images. When trained
+                   with progressive resizing, S4ND comes within $\sim 1\%$ of a
+                   high-resolution model while training $22\%$ faster.",
+  month         =  oct,
+  year          =  2022,
+  keywords      = "SSM",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.CV",
+  eprint        = "2210.06583"
+}

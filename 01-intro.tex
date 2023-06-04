@@ -1,0 +1,87 @@
+\begin{frame}{Do we need \textcolor{blue}{Attention}?}
+    \centering
+    \only<2>{Or can we use something simpler...}
+    \begin{figure}
+        \centering
+        
+        \includegraphics<1>[height=0.6\textheight,clip,trim={0.1cm 0.1cm 0.1cm 0.1cm}]{Figs/Complex.png} 
+        \includegraphics<2>[height=0.55\textheight,clip,trim={0.1cm 0.1cm 0.1cm 0.1cm}]{Figs/Allowed.png}
+        
+        
+    \end{figure}
+\end{frame}
+
+\begin{frame}[label=current]{Proposition - One year ago}
+    \begin{quote}
+        On January 1, 2027, an \textcolor{blue}{Attention-based} model will be state-of-the-art in natural language processing.
+    \end{quote}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\linewidth,clip,  trim={0.1cm 0.1cm 0.1cm 0.1cm}]{Figs/Is-Attention-All-You-Need-.png}
+        \label{fig:my_label}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}[c, label=current]{}
+    \begin{figure}
+        \centering
+    \includegraphics[width=0.8\linewidth]{Figs/Biden.png}
+        \label{fig:my_label}
+    \end{figure}
+\end{frame}
+
+
+
+\begin{frame}{Algorithmic Goal}
+    GPT models are growing, but still limited by context length.
+    \vspace{1cm}
+    
+    \begin{itemize}
+        \item \textcolor{blue}{Training Speed} - Cost is quadratic in length
+        \item \textcolor{blue}{Generation Speed} - Attention requires full lookback
+    \end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}{Survey: Progress on Attention Alternatives}
+    \begin{center}
+        Recent research has made significant progress.
+    \end{center}
+
+    \begin{columns}
+    \begin{column}{0.4\textwidth}
+    \textit{S4}~\cite{gu2022parameterization}
+    \textit{DSS}~\cite{gupta2022diagonal}
+    \textit{GSS}~\cite{mehta2022long}
+    \textit{S4D}~\cite{Gu2022-jz} 
+    \textit{H3}~\cite{dao2022hungry}
+    \textit{S5}~\cite{smith2022simplified}
+    \textit{BiGS}~\cite{Wang2022-un}
+    \end{column}
+    \begin{column}{0.4\textwidth}      
+    \textit{QRNN}~\cite{mccann2017learned}
+    \textit{LRU}~\cite{Orvieto2023-an}
+    \textit{RWKV}~\cite{Peng2023-yp}
+    \textit{Mega}~\cite{ma2022mega}
+    \textit{Hyena}~\cite{Poli2023-ag}
+    \textit{SGConv}~\cite{Li2022-pn}
+    \end{column}
+    \end{columns}
+    \pause
+
+    
+    \begin{center}
+        \structure{Note:} Just one research direction.
+        
+    \end{center}
+
+
+\end{frame}
+
+
+
